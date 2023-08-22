@@ -47,21 +47,21 @@ const DepartmentList: React.FC = () => {
       });
     };
 
-     const handleDepartmentToggle = (department: string) => () => {
-       setSelected((prevSelected) => {
-         const isSelected =
-           prevSelected[department]?.length ===
-           data.find((item) => item.department === department)?.sub_departments
-             .length;
-         return {
-           ...prevSelected,
-           [department]: isSelected
-             ? []
-             : data.find((item) => item.department === department)
-                 ?.sub_departments || [],
-         };
-       });
-     };
+  const handleDepartmentToggle = (department: string) => () => {
+    setSelected((prevSelected) => {
+      const isSelected =
+        prevSelected[department]?.length ===
+        data.find((item) => item.department === department)?.sub_departments
+          .length;
+      return {
+        ...prevSelected,
+        [department]: isSelected
+          ? []
+          : data.find((item) => item.department === department)
+              ?.sub_departments || [],
+      };
+    });
+  };
 
   const handleExpand = (value: string) => {
     setExpanded((prevExpanded) =>
